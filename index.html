@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieGo — Food Delivery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span>🍴</span> FoodieGo</a>
+    <div class="location">Delivering to <strong>📍 Your location</strong></div>
+    <button class="cart-top" id="openCart">🛒 Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="tag">GOOD FOOD, GOOD MOOD</span>
+        <h1>Your next meal<br><em>is just a click away.</em></h1>
+        <p>Find your favourite restaurant, choose your food and get it delivered fresh.</p>
+        <a href="#restaurants" class="hero-btn">Explore restaurants <span>→</span></a>
+      </div>
+      <div class="hero-art"><div class="food-circle">🍕</div><div class="float-food f1">🍔</div><div class="float-food f2">🍟</div><div class="float-food f3">🥤</div></div>
+    </section>
+
+    <section class="section" id="restaurants">
+      <div class="section-head"><div><span class="tag">PICK YOUR PLACE</span><h2>Popular restaurants</h2></div><span class="subtle">Fresh picks for you</span></div>
+      <div class="restaurant-grid" id="restaurantGrid"></div>
+    </section>
+
+    <section class="section menu-section hidden" id="menuSection">
+      <div class="menu-heading">
+        <button class="back-btn" id="backRestaurants">← All restaurants</button>
+        <div id="restaurantInfo"></div>
+      </div>
+      <div class="section-head"><div><span class="tag">MADE FRESH</span><h2>Explore the menu</h2></div></div>
+      <div class="category-row" id="categoryRow"></div>
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <section class="section how-section">
+      <div class="section-head"><div><span class="tag">SIMPLE & EASY</span><h2>How it works</h2></div></div>
+      <div class="steps">
+        <div class="step"><span>01</span><div>🏪</div><h3>Choose a restaurant</h3><p>Browse restaurants listed on FoodieGo.</p></div>
+        <div class="step"><span>02</span><div>🍜</div><h3>Select your food</h3><p>Add your favourite dishes to the cart.</p></div>
+        <div class="step"><span>03</span><div>🛵</div><h3>Place your order</h3><p>Enter your details and confirm your order.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#">🍴 FoodieGo</a><p>Made with care. Enjoy every bite!</p><small>Demo food ordering website · HTML, CSS & JavaScript</small></footer>
+
+  <div class="overlay hidden" id="cartOverlay">
+    <aside class="drawer">
+      <div class="drawer-head"><div><span class="tag">YOUR ORDER</span><h2>Shopping cart</h2></div><button class="close-btn" id="closeCart">×</button></div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-bottom">
+        <div class="bill-line"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+        <div class="bill-line"><span>Delivery fee</span><strong id="deliveryFee">₹0</strong></div>
+        <div class="bill-line total"><span>Total</span><strong id="total">₹0</strong></div>
+        <button class="checkout-btn" id="checkoutBtn">Proceed to checkout →</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="overlay hidden" id="checkoutOverlay">
+    <div class="checkout-modal">
+      <button class="close-btn modal-close" id="closeCheckout">×</button>
+      <span class="tag">ALMOST THERE</span><h2>Delivery details</h2>
+      <p class="subtle">Enter your details to place this demo order.</p>
+      <form id="checkoutForm">
+        <label>Your name<input name="name" required placeholder="Enter your name"></label>
+        <label>Phone number<input name="phone" required type="tel" pattern="[0-9]{10}" placeholder="10-digit mobile number"></label>
+        <label>Delivery address<textarea name="address" required rows="3" placeholder="House no, street, area..."></textarea></label>
+        <label>Payment method<select name="payment"><option>Cash on Delivery</option><option>UPI (demo only)</option></select></label>
+        <div class="checkout-total"><span>Payable amount</span><strong id="checkoutTotal">₹0</strong></div>
+        <button class="checkout-btn" type="submit">Confirm order</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay hidden" id="successOverlay">
+    <div class="success-modal"><div class="success-icon">✓</div><span class="tag">ORDER PLACED</span><h2>Thank you!</h2><p id="successText">Your order has been placed successfully.</p><button class="checkout-btn" id="doneBtn">Continue exploring</button></div>
+  </div>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
